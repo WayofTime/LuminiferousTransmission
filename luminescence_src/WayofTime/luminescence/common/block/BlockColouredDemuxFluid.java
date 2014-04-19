@@ -5,9 +5,11 @@ import java.util.List;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import WayofTime.luminescence.Luminescence;
 import WayofTime.luminescence.ModBlocks;
 import WayofTime.luminescence.common.tileEntity.TEColouredDemultiplexerFluid;
+import WayofTime.luminescence.common.tileEntity.TEColouredMultiplexerFluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -54,7 +56,8 @@ public class BlockColouredDemuxFluid extends BlockOrientable
         }
     }
 	
-	public TileEntity createTileEntity()
+	@Override
+	public TileEntity createNewTileEntity(World world)
     { 
 		return new TEColouredDemultiplexerFluid();
 	}

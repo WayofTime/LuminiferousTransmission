@@ -86,6 +86,21 @@ public class TEFluidicLens extends TEOrientable implements ISingleLens
 		}
 		return maxDistance;
 	}
+	
+	public float getDistanceAndSetMultiBeamRender(ForgeDirection side, int cooldown)
+	{
+		Vec3 block = this.getProjectedBlock(side);
+		if(block != null)
+		{
+			TileEntity tile = worldObj.getBlockTileEntity((int)block.xCoord, (int)block.yCoord, (int)block.zCoord);
+			if(tile instanceof IMultiLens)
+			{
+				((IMultiLens) tile).setMultiBeamRenderTimeFromSide(cooldown, side.getOpposite());
+			}
+			return (float) Math.abs((xCoord-block.xCoord)+(yCoord-block.yCoord)+(zCoord-block.zCoord));
+		}
+		return maxDistance;
+	}
 
 	@Override
 	public ForgeDirection getLensDirection() 

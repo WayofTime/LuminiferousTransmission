@@ -6,10 +6,12 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import WayofTime.luminescence.ModBlocks;
 import WayofTime.luminescence.client.helper.ShaderHelper;
 import WayofTime.luminescence.client.renderer.block.RenderInputMirrorBlock;
+import WayofTime.luminescence.client.renderer.block.RenderMuxFluidBlock;
 import WayofTime.luminescence.client.renderer.block.RenderOutputMirrorBlock;
 import WayofTime.luminescence.client.renderer.block.RenderRepeaterLensBlock;
 import WayofTime.luminescence.client.renderer.block.itemRender.TEBasicLensItemRenderer;
 import WayofTime.luminescence.common.CommonProxy;
+import WayofTime.luminescence.common.tileEntity.TEColouredMultiplexerFluid;
 import WayofTime.luminescence.common.tileEntity.TEInputMirror;
 import WayofTime.luminescence.common.tileEntity.TEOutputMirror;
 import WayofTime.luminescence.common.tileEntity.TESingleRepeater;
@@ -28,6 +30,7 @@ public class ClientProxy extends CommonProxy
     	ClientRegistry.bindTileEntitySpecialRenderer(TEInputMirror.class, new RenderInputMirrorBlock());
     	ClientRegistry.bindTileEntitySpecialRenderer(TEOutputMirror.class, new RenderOutputMirrorBlock());
     	ClientRegistry.bindTileEntitySpecialRenderer(TESingleRepeater.class, new RenderRepeaterLensBlock());
+    	ClientRegistry.bindTileEntitySpecialRenderer(TEColouredMultiplexerFluid.class, new RenderMuxFluidBlock());
     	
     	MinecraftForgeClient.registerItemRenderer(ModBlocks.blockInputMirror.blockID, new TEBasicLensItemRenderer());
     	

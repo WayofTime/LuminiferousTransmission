@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import WayofTime.luminescence.Luminescence;
 import WayofTime.luminescence.ModBlocks;
 import WayofTime.luminescence.common.tileEntity.TEColouredMultiplexerFluid;
@@ -54,7 +55,8 @@ public class BlockColouredMuxFluid extends BlockOrientable
         }
     }
 	
-	public TileEntity createTileEntity()
+	@Override
+	public TileEntity createNewTileEntity(World world)
     { 
 		return new TEColouredMultiplexerFluid();
 	}

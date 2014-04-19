@@ -7,5 +7,5 @@ public interface IMultiLens extends ISingleLens
 {
 	public int recieveChannelFromSide(int channel, ForgeDirection side, FluidStack fluid);
 	
-	
+	public void setMultiBeamRenderTimeFromSide(int cooldown, ForgeDirection side);
 }
