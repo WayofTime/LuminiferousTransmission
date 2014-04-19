@@ -15,11 +15,6 @@ public class TEFluidicLens extends TEOrientable implements ISingleLens
 	@Override
 	public int recieveBeamFromSide(ForgeDirection forgeDirection, FluidStack fluid)
 	{
-		if(forgeDirection == this.getStandDirection())
-		{
-			return 0;
-		}
-		
 		return 0;
 	}
 	
@@ -77,15 +72,15 @@ public class TEFluidicLens extends TEOrientable implements ISingleLens
 		return maxDistance;
 	}
 	
-	public float getDistanceAndSetBeamRender(ForgeDirection side, int cooldown)
+	public float getDistanceAndSetSingleBeamRender(ForgeDirection side, int cooldown)
 	{
 		Vec3 block = this.getProjectedBlock(side);
 		if(block != null)
 		{
 			TileEntity tile = worldObj.getBlockTileEntity((int)block.xCoord, (int)block.yCoord, (int)block.zCoord);
-			if(tile instanceof TEFluidicLens)
+			if(tile instanceof ISingleLens)
 			{
-				((TEFluidicLens) tile).setBeamRenderTimeFromSide(cooldown, side.getOpposite());
+				((ISingleLens) tile).setSingleBeamRenderTimeFromSide(cooldown, side.getOpposite());
 			}
 			return (float) Math.abs((xCoord-block.xCoord)+(yCoord-block.yCoord)+(zCoord-block.zCoord));
 		}
@@ -109,7 +104,8 @@ public class TEFluidicLens extends TEOrientable implements ISingleLens
 		return this.beamRenderTime;
 	}
 	
-	public void setBeamRenderTimeFromSide(int time, ForgeDirection side)
+	@Override
+	public void setSingleBeamRenderTimeFromSide(int time, ForgeDirection side)
 	{
 		if(side == this.getLensDirection() || side == this.getStandDirection())
 		{

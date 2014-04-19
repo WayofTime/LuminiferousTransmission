@@ -1,18 +1,14 @@
 package WayofTime.luminescence.common.tileEntity;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 
-public class TESingleRepeater extends TEFluidicLens
+public class TEMultiRepeater extends TEFluidicLensMulti
 {
 	@Override
-	public int recieveBeamFromSide(ForgeDirection side, FluidStack fluid)
+	public int recieveChannelFromSide(int channel, ForgeDirection side, FluidStack fluid) 
 	{
 		if(side == this.getStandDirection() || side == this.getLensDirection())
 		{
@@ -23,9 +19,9 @@ public class TESingleRepeater extends TEFluidicLens
 		if(nextBlock != null)
 		{
 			TileEntity nextTile = worldObj.getBlockTileEntity((int)nextBlock.xCoord, (int)nextBlock.yCoord, (int)nextBlock.zCoord);
-			if(nextTile instanceof ISingleLens)
+			if(nextTile instanceof IMultiLens)
 			{
-				return ((ISingleLens) nextTile).recieveBeamFromSide(getLensDirection().getOpposite(), fluid);
+				return ((IMultiLens) nextTile).recieveChannelFromSide(channel, getLensDirection().getOpposite(), fluid);
 			}
 		}
 		
@@ -33,9 +29,9 @@ public class TESingleRepeater extends TEFluidicLens
 	}
 	
 	@Override
-	public ForgeDirection getStandDirection()
+	public int recieveBeamFromSide(ForgeDirection side, FluidStack fluid)
 	{
-		return ForgeDirection.UNKNOWN;
+		return 0;
 	}
 	
 	@Override
@@ -45,14 +41,8 @@ public class TESingleRepeater extends TEFluidicLens
 	}
 	
 	@Override
-	public void setInputDirection(ForgeDirection input)
+	public ForgeDirection getStandDirection()
 	{
-		return;
-	}
-	
-	@SideOnly(Side.CLIENT)
-    public AxisAlignedBB getRenderBoundingBox()
-	{
-		return TileEntity.INFINITE_EXTENT_AABB;
+		return ForgeDirection.UNKNOWN;
 	}
 }

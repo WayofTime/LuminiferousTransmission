@@ -11,6 +11,8 @@ import net.minecraft.potion.Potion;
 import net.minecraftforge.oredict.OreDictionary;
 import WayofTime.luminescence.common.CommonProxy;
 import WayofTime.luminescence.common.PacketHandler;
+import WayofTime.luminescence.common.items.ItemFluidDemultiplexerBlock;
+import WayofTime.luminescence.common.items.ItemFluidMultiplexerBlock;
 import WayofTime.luminescence.common.items.ItemInputMirrorBlock;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -28,6 +30,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class Luminescence
 {
 	public static int blockInputMirrorBlockID;
+	public static int blockMultiplexerFluidBlockID;
+	public static int blockDemultiplexerFluidBlockID;
 	
     public static CreativeTabs tabLuminescence = new CreativeTabs("tabLuminescence")
     {
@@ -105,6 +109,8 @@ public class Luminescence
         proxy.registerTileEntities();
         
         GameRegistry.registerBlock(ModBlocks.blockInputMirror, ItemInputMirrorBlock.class, "Luminescence" + (ModBlocks.blockInputMirror.getUnlocalizedName()));
+        GameRegistry.registerBlock(ModBlocks.blockMultiplexerFluid, ItemFluidMultiplexerBlock.class, "Luminescence" + (ModBlocks.blockMultiplexerFluid.getUnlocalizedName()));
+        GameRegistry.registerBlock(ModBlocks.blockDemultiplexerFluid, ItemFluidDemultiplexerBlock.class, "Luminescence" + (ModBlocks.blockDemultiplexerFluid.getUnlocalizedName()));
     }
 
     @EventHandler

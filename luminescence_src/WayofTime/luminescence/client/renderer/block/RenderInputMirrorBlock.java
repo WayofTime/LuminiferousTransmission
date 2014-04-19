@@ -44,7 +44,7 @@ public class RenderInputMirrorBlock extends TileEntitySpecialRenderer
 			GL11.glPopMatrix();
 
 			ForgeDirection dir = tileSpellBlock.getLensDirection();
-			float distance = tileSpellBlock.getDistanceAndSetBeamRender(dir,2);
+			float distance = tileSpellBlock.getDistanceAndSetSingleBeamRender(dir,2);
 
 			GL11.glPushMatrix();
 			float f1 = 1.0f;

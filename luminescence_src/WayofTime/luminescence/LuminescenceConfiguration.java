@@ -23,6 +23,9 @@ public class LuminescenceConfiguration
             config.load();
 
             Luminescence.blockInputMirrorBlockID = config.getBlock("inputMirror", 1500).getInt();
+            Luminescence.blockMultiplexerFluidBlockID = config.getBlock("multiplexer", 1501).getInt();
+            Luminescence.blockDemultiplexerFluidBlockID = config.getBlock("demultiplexer", 1502).getInt();
+
             
         } catch (Exception e)
         {

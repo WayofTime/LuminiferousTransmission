@@ -10,4 +10,6 @@ public interface ISingleLens
 	public ForgeDirection getLensDirection();
 	
 	public ForgeDirection getStandDirection();
+	
+	public void setSingleBeamRenderTimeFromSide(int cooldown, ForgeDirection side);
 }
