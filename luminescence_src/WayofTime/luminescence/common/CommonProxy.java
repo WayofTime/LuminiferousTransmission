@@ -3,6 +3,7 @@ package WayofTime.luminescence.common;
 import net.minecraft.world.World;
 import WayofTime.luminescence.common.tileEntity.TEInputMirror;
 import WayofTime.luminescence.common.tileEntity.TEOutputMirror;
+import WayofTime.luminescence.common.tileEntity.TESingleRepeater;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy
@@ -41,6 +42,7 @@ public class CommonProxy
     {
     	GameRegistry.registerTileEntity(TEInputMirror.class, "containerInputMirror");
     	GameRegistry.registerTileEntity(TEOutputMirror.class, "containerOutputMirror");
+    	GameRegistry.registerTileEntity(TESingleRepeater.class, "containerSingleRepeater");
     }
 
     public void registerEntityTrackers()

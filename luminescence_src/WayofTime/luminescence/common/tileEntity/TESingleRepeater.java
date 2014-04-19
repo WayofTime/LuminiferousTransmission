@@ -1,6 +1,9 @@
 package WayofTime.luminescence.common.tileEntity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.common.ForgeDirection;
@@ -36,8 +39,20 @@ public class TESingleRepeater extends TEFluidicLens
 	}
 	
 	@Override
+	public ForgeDirection getInputDirection()
+	{
+		return ForgeDirection.UNKNOWN;
+	}
+	
+	@Override
 	public void setInputDirection(ForgeDirection input)
 	{
 		return;
+	}
+	
+	@SideOnly(Side.CLIENT)
+    public AxisAlignedBB getRenderBoundingBox()
+	{
+		return TileEntity.INFINITE_EXTENT_AABB;
 	}
 }

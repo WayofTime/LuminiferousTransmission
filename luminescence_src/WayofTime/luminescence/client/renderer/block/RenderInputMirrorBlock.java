@@ -44,7 +44,7 @@ public class RenderInputMirrorBlock extends TileEntitySpecialRenderer
 			GL11.glPopMatrix();
 
 			ForgeDirection dir = tileSpellBlock.getLensDirection();
-			float distance = tileSpellBlock.getDistanceToNextTile(dir);
+			float distance = tileSpellBlock.getDistanceAndSetBeamRender(dir,2);
 
 			GL11.glPushMatrix();
 			float f1 = 1.0f;
@@ -58,21 +58,21 @@ public class RenderInputMirrorBlock extends TileEntitySpecialRenderer
 			float f3 = -f2 * 0.2F - (float)MathHelper.floor_float(-f2 * 0.1F);
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-			GL11.glDepthMask(true);
+			
 
 			GL11.glDepthMask(false);
 
 			tessellator.startDrawingQuads();
 			tessellator.setColorRGBA(255, 255, 255, 100);
 			
-			double d18 = 0.2D;
-			double d19 = 0.2D;
-			double d20 = 0.8D;
-			double d21 = 0.2D;
-			double d22 = 0.2D;
-			double d23 = 0.8D;
-			double d24 = 0.8D;
-			double d25 = 0.8D;
+			double d18 = 0.3D;
+			double d19 = 0.3D;
+			double d20 = 0.7D;
+			double d21 = 0.3D;
+			double d22 = 0.3D;
+			double d23 = 0.7D;
+			double d24 = 0.7D;
+			double d25 = 0.7D;
 			double d26 = (double)(distance * f1) + 0.2;
 			double d27 = 0.0D;
 			double d28 = 1.0D;

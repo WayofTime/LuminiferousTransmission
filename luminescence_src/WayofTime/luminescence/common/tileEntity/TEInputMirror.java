@@ -27,6 +27,8 @@ public class TEInputMirror extends TEFluidicLens
 	@Override
 	public void updateEntity()
 	{
+		super.updateEntity();
+		
 		ForgeDirection stand = this.getStandDirection();
 		
 		TileEntity tile = worldObj.getBlockTileEntity(xCoord+stand.offsetX, yCoord+stand.offsetY, zCoord+stand.offsetZ);

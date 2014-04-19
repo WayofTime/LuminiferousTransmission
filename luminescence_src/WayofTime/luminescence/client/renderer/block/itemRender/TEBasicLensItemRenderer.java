@@ -13,12 +13,14 @@ import org.lwjgl.opengl.GL11;
 
 import WayofTime.luminescence.ModBlocks;
 import WayofTime.luminescence.client.renderer.model.ModelInputMirrorBlock;
+import WayofTime.luminescence.client.renderer.model.ModelRepeaterLensBlock;
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class TEBasicLensItemRenderer implements IItemRenderer 
 {
 	private ModelInputMirrorBlock modelInputBlock = new ModelInputMirrorBlock();
 	private ModelInputMirrorBlock modelOutputBlock = new ModelInputMirrorBlock();
+	private ModelRepeaterLensBlock modelRepeaterLensBlock = new ModelRepeaterLensBlock();
 
 	private void renderConduitItem(RenderBlocks render, ItemStack item, float translateX, float translateY, float translateZ) 
 	{
@@ -48,6 +50,9 @@ public class TEBasicLensItemRenderer implements IItemRenderer
             break;
         case 1:
             this.modelOutputBlock.render((Entity) null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, ForgeDirection.DOWN, ForgeDirection.UP);
+            break;
+        case 2:
+        	this.modelRepeaterLensBlock.render((Entity) null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, ForgeDirection.DOWN, ForgeDirection.UP);
             break;
         }
         //Tell it to stop rendering for both the PushMatrix's
@@ -109,7 +114,7 @@ public class TEBasicLensItemRenderer implements IItemRenderer
 		{
 		case 0: return "luminescence:textures/models/InputMirror.png";
 		case 1: return "luminescence:textures/models/OutputMirror.png";
-		case 2: return "alchemicalwizardry:textures/models/SpellEffectWind.png";
+		case 2: return "luminescence:textures/models/RepeaterLens.png";
 		case 3: return "alchemicalwizardry:textures/models/SpellEffectEarth.png";
 		}
     	return "";

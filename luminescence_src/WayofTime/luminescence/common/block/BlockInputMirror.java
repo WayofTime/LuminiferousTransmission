@@ -10,6 +10,7 @@ import WayofTime.luminescence.Luminescence;
 import WayofTime.luminescence.ModBlocks;
 import WayofTime.luminescence.common.tileEntity.TEInputMirror;
 import WayofTime.luminescence.common.tileEntity.TEOutputMirror;
+import WayofTime.luminescence.common.tileEntity.TESingleRepeater;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -46,7 +47,7 @@ public class BlockInputMirror extends BlockOrientable
     {
         if (this.blockID == ModBlocks.blockInputMirror.blockID)
         {
-        	for(int i=0; i<2; i++)
+        	for(int i=0; i<3; i++)
         	{
         		par3List.add(new ItemStack(par1, 1, i));
         	}
@@ -64,6 +65,8 @@ public class BlockInputMirror extends BlockOrientable
 			return new TEInputMirror();
 		case 1:
 			return new TEOutputMirror();
+		case 2:
+			return new TESingleRepeater();
 		}
 
 		return null;
