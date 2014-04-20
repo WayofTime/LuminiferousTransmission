@@ -36,6 +36,10 @@ public class ItemInputMirrorBlock extends ItemBlock
                 name = "repeaterAssembly";
                 break;
 
+            case 3:
+            	name = "multiRepeater";
+            	break;
+            	
             default:
                 name = "broken";
         }

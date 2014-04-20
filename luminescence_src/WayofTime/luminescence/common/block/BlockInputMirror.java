@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import WayofTime.luminescence.Luminescence;
 import WayofTime.luminescence.ModBlocks;
 import WayofTime.luminescence.common.tileEntity.TEInputMirror;
+import WayofTime.luminescence.common.tileEntity.TEMultiRepeater;
 import WayofTime.luminescence.common.tileEntity.TEOutputMirror;
 import WayofTime.luminescence.common.tileEntity.TESingleRepeater;
 import cpw.mods.fml.relauncher.Side;
@@ -47,7 +48,7 @@ public class BlockInputMirror extends BlockOrientable
     {
         if (this.blockID == ModBlocks.blockInputMirror.blockID)
         {
-        	for(int i=0; i<3; i++)
+        	for(int i=0; i<4; i++)
         	{
         		par3List.add(new ItemStack(par1, 1, i));
         	}
@@ -67,6 +68,8 @@ public class BlockInputMirror extends BlockOrientable
 			return new TEOutputMirror();
 		case 2:
 			return new TESingleRepeater();
+		case 3:
+			return new TEMultiRepeater();
 		}
 
 		return null;

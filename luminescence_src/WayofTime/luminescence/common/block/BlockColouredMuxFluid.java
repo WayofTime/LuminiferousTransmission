@@ -45,7 +45,7 @@ public class BlockColouredMuxFluid extends BlockOrientable
     {
         if (this.blockID == ModBlocks.blockMultiplexerFluid.blockID)
         {
-        	for(int i=0; i<1; i++)
+        	for(int i=0; i<16; i++)
         	{
         		par3List.add(new ItemStack(par1, 1, i));
         	}

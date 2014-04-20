@@ -25,6 +25,11 @@ public class TEFluidicLensMulti extends TEFluidicLens implements IMultiLens
 		this.multiBeamRenderTime = time;
 	}
 	
+	public int getMultiBeamRenderTime()
+	{
+		return multiBeamRenderTime;
+	}
+	
 	@Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound)
     {

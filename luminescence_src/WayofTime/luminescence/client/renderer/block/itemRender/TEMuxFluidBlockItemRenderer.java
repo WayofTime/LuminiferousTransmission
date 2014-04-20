@@ -12,15 +12,12 @@ import net.minecraftforge.common.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 
 import WayofTime.luminescence.ModBlocks;
-import WayofTime.luminescence.client.renderer.model.ModelInputMirrorBlock;
-import WayofTime.luminescence.client.renderer.model.ModelRepeaterLensBlock;
+import WayofTime.luminescence.client.renderer.model.ModelMuxFluidBlock;
 import cpw.mods.fml.client.FMLClientHandler;
 
-public class TEBasicLensItemRenderer implements IItemRenderer 
+public class TEMuxFluidBlockItemRenderer implements IItemRenderer 
 {
-	private ModelInputMirrorBlock modelInputBlock = new ModelInputMirrorBlock();
-	private ModelInputMirrorBlock modelOutputBlock = new ModelInputMirrorBlock();
-	private ModelRepeaterLensBlock modelRepeaterLensBlock = new ModelRepeaterLensBlock();
+	private ModelMuxFluidBlock modelMuxBlock = new ModelMuxFluidBlock();
 
 	private void renderConduitItem(RenderBlocks render, ItemStack item, float translateX, float translateY, float translateZ) 
 	{
@@ -43,21 +40,9 @@ public class TEBasicLensItemRenderer implements IItemRenderer
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
         //GL11.glRotatef(90F, 0.0F, 0.0F, 1.0F);
         //A reference to your Model file. Again, very important.
-        switch(item.getItemDamage())
-        {
-        case 0:
-            this.modelInputBlock.render((Entity) null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, ForgeDirection.DOWN, ForgeDirection.UP);
-            break;
-        case 1:
-            this.modelOutputBlock.render((Entity) null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, ForgeDirection.DOWN, ForgeDirection.UP);
-            break;
-        case 2:
-        	this.modelRepeaterLensBlock.render((Entity) null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, ForgeDirection.DOWN, ForgeDirection.UP);
-            break;
-        case 3:
-        	this.modelRepeaterLensBlock.render((Entity) null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, ForgeDirection.DOWN, ForgeDirection.UP);
-            break;
-        }
+
+        this.modelMuxBlock.render((Entity) null, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F, ForgeDirection.DOWN, ForgeDirection.UP);
+
         //Tell it to stop rendering for both the PushMatrix's
         GL11.glPopMatrix();
         GL11.glPopMatrix();
@@ -115,11 +100,8 @@ public class TEBasicLensItemRenderer implements IItemRenderer
     {
 		switch(meta)
 		{
-		case 0: return "luminescence:textures/models/InputMirror.png";
-		case 1: return "luminescence:textures/models/OutputMirror.png";
-		case 2: return "luminescence:textures/models/RepeaterLens.png";
-		case 3: return "luminescence:textures/models/RepeaterLens.png";
+		case 0: return "luminescence:textures/models/MultiplexerWhite.png";
 		}
-    	return "";
+    	return "luminescence:textures/models/MultiplexerStandard.png";
     }
 }

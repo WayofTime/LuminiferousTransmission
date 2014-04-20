@@ -20,7 +20,6 @@ public class RenderMuxFluidBlock extends TileEntitySpecialRenderer
 {
 	private ModelMuxFluidBlock modelInputMirror = new ModelMuxFluidBlock();
 	private static final ResourceLocation field_110629_a = new ResourceLocation("textures/entity/beacon_beam.png");
-	private static final ResourceLocation test = new ResourceLocation("luminescence:textures/models/InputMirror.png");
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double d0, double d1, double d2, float f)
@@ -164,6 +163,8 @@ public class RenderMuxFluidBlock extends TileEntitySpecialRenderer
 		{
 		case 0:
 			return "luminescence:textures/models/MultiplexerWhite.png";
+		case 1:
+			return "luminescence:textures/models/MultiplexerOrange.png";
 		}
 		return "luminescence:textures/models/MultiplexerStandard.png";
 	}
