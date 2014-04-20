@@ -1,7 +1,10 @@
 package WayofTime.luminescence.common.tileEntity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
@@ -95,5 +98,11 @@ public class TEMultiRepeater extends TEFluidicLensMulti
 		{
 			this.colourArray[channel] = time;
 		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+    public AxisAlignedBB getRenderBoundingBox()
+	{
+		return TileEntity.INFINITE_EXTENT_AABB;
 	}
 }

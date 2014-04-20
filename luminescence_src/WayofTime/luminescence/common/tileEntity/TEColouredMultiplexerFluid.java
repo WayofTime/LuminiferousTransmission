@@ -38,7 +38,7 @@ public class TEColouredMultiplexerFluid extends TEFluidicLensMulti
 	
 	public int getChannelForMeta(int meta)
 	{
-		return 0;
+		return meta;
 	}
 	
 	@Override

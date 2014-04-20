@@ -50,6 +50,6 @@ public class TEColouredDemultiplexerFluid extends TEFluidicLensMulti
 	
 	public int getChannelForMeta(int meta)
 	{
-		return 0;
+		return meta;
 	}
 }
