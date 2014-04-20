@@ -165,6 +165,18 @@ public class RenderMuxFluidBlock extends TileEntitySpecialRenderer
 			return "luminescence:textures/models/MultiplexerWhite.png";
 		case 1:
 			return "luminescence:textures/models/MultiplexerOrange.png";
+		case 2:
+			return "luminescence:textures/models/MultiplexerMagenta.png";
+		case 3:
+			return "luminescence:textures/models/MultiplexerLightblue.png";
+		case 4:
+			return "luminescence:textures/models/MultiplexerYellow.png";
+		case 5:
+			return "luminescence:textures/models/MultiplexerLime.png";
+		case 6:
+			return "luminescence:textures/models/MultiplexerPink.png";
+		case 7:
+			return "luminescence:textures/models/MultiplexerGray.png";
 		}
 		return "luminescence:textures/models/MultiplexerStandard.png";
 	}

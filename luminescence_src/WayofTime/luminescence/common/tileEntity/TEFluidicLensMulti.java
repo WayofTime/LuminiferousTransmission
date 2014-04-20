@@ -25,6 +25,17 @@ public class TEFluidicLensMulti extends TEFluidicLens implements IMultiLens
 		this.multiBeamRenderTime = time;
 	}
 	
+	@Override
+	public void updateEntity()
+	{
+		super.updateEntity();
+		
+		if(this.multiBeamRenderTime>0)
+		{
+			multiBeamRenderTime--;
+		}
+	}
+	
 	public int getMultiBeamRenderTime()
 	{
 		return multiBeamRenderTime;
