@@ -1,5 +1,6 @@
 package WayofTime.luminescence.common.tileEntity;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.common.ForgeDirection;
@@ -7,6 +8,8 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class TEMultiRepeater extends TEFluidicLensMulti
 {
+	public int[] colourArray = new int[16];
+	
 	@Override
 	public int recieveChannelFromSide(int channel, ForgeDirection side, FluidStack fluid) 
 	{
@@ -14,6 +17,8 @@ public class TEMultiRepeater extends TEFluidicLensMulti
 		{
 			return 0;
 		}
+		
+		this.setColourTimer(channel, 5);
 		
 		Vec3 nextBlock = this.getProjectedBlock(getLensDirection());
 		if(nextBlock != null)
@@ -35,6 +40,39 @@ public class TEMultiRepeater extends TEFluidicLensMulti
 	}
 	
 	@Override
+	public void updateEntity()
+	{
+		super.updateEntity();
+		for(int i=0; i<16; i++)
+		{
+			if(colourArray[i] >0)
+			{
+				colourArray[i]--;
+			}
+		}
+	}
+	
+	@Override
+    public void readFromNBT(NBTTagCompound par1NBTTagCompound)
+    {
+        super.readFromNBT(par1NBTTagCompound);
+        for(int i=0; i<16; i++)
+        {
+        	par1NBTTagCompound.setInteger("colourArray" + i, colourArray[i]);
+        }  
+    }
+	
+	@Override
+    public void writeToNBT(NBTTagCompound par1NBTTagCompound)
+    {
+        super.writeToNBT(par1NBTTagCompound);
+        for(int i=0; i<16; i++)
+        {
+            colourArray[i] = par1NBTTagCompound.getInteger("colourArray" + i);
+        }
+    }
+	
+	@Override
 	public ForgeDirection getInputDirection()
 	{
 		return ForgeDirection.UNKNOWN;
@@ -44,5 +82,18 @@ public class TEMultiRepeater extends TEFluidicLensMulti
 	public ForgeDirection getStandDirection()
 	{
 		return ForgeDirection.UNKNOWN;
+	}
+	
+	public int[] getColourArray()
+	{
+		return this.colourArray;
+	}
+	
+	public void setColourTimer(int channel, int time)
+	{
+		if(channel<16 && channel>=0)
+		{
+			this.colourArray[channel] = time;
+		}
 	}
 }

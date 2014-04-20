@@ -12,6 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import WayofTime.luminescence.client.helper.ShaderHelper;
 import WayofTime.luminescence.client.renderer.model.ModelRepeaterLensBlock;
+import WayofTime.luminescence.common.ColourHelper;
 import WayofTime.luminescence.common.tileEntity.TEMultiRepeater;
 import cpw.mods.fml.client.FMLClientHandler;
 
@@ -43,6 +44,10 @@ public class RenderMultiRepeaterLensBlock extends TileEntitySpecialRenderer
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
 
+			//If a number in this array is greater than 0, the index colour should be rendered.
+			//ColourHelper.getHexColourForMeta(i);
+			int[] colourTimerArray = tileSpellBlock.getColourArray();
+			
 			boolean bool = tileSpellBlock.getMultiBeamRenderTime()>0;
 			if(bool)
 			{

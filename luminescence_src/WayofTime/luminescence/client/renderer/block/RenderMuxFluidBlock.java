@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import WayofTime.luminescence.client.helper.ShaderHelper;
 import WayofTime.luminescence.client.renderer.model.ModelMuxFluidBlock;
-import WayofTime.luminescence.common.tileEntity.TEColouredMultiplexerFluid;
+import WayofTime.luminescence.common.ColourHelper;
 import WayofTime.luminescence.common.tileEntity.TEColouredMultiplexerFluid;
 import cpw.mods.fml.client.FMLClientHandler;
 
@@ -44,7 +44,7 @@ public class RenderMuxFluidBlock extends TileEntitySpecialRenderer
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
 			
-			boolean bool = false;
+			int beamColour = ColourHelper.getHexColourForMeta(tileEntity.getBlockMetadata());
 			
 			for(int i=0; i<6; i++)
 			{
